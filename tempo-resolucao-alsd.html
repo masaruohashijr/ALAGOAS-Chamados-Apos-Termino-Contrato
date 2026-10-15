@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tempo de resolução ALSD</title>
+<style>
+:root{--color-fg:#1f1e1c;--color-fg-muted:#6b6862;--color-bg:#faf9f6;--color-panel:#ffffff;--color-border-line:#e6e3dc;--color-ok:#2f7d4f;--color-warn:#a86412;--color-bad:#c0392b;
+--c0:#3b6fd9;--c1:#d97b3b;
+--font-anthropic-sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--font-anthropic-serif:Georgia,"Times New Roman",serif;
+--cds-font-size-caption:.8125rem;--cds-font-size-body:.9375rem;--cds-font-size-heading:1.0625rem;--cds-font-size-title:1.875rem;--cds-font-weight-medium:500;
+--cds-gap-xs:4px;--cds-gap-sm:8px;--cds-gap-md:16px;--cds-gap-lg:28px;--cds-pad-xs:4px;--cds-pad-sm:8px;--cds-pad-lg:20px;--cds-radius:8px;
+--cds-chart-grid:#ece9e2;--cds-surface-popover:#ffffff;--cds-border:#e6e3dc;--cds-shadow-popover:0 4px 16px rgba(0,0,0,.12);--cds-text-secondary:#6b6862;--cds-dur-slow:.3s;}
+@media (prefers-color-scheme: dark){:root{--color-fg:#ece9e2;--color-fg-muted:#a29e96;--color-bg:#1a1917;--color-panel:#24231f;--color-border-line:#38362f;--color-ok:#6fcf97;--color-warn:#e3a857;--color-bad:#ef6f61;--c0:#7aa2f7;--c1:#f0a36b;--cds-chart-grid:#33312b;--cds-surface-popover:#2b2a25;--cds-border:#3d3b34;--cds-text-secondary:#a29e96;}}
+body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:var(--font-anthropic-sans);}
+#dash-root{max-width:1200px;margin:0 auto;padding:32px 16px 48px;}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+window.DASH_ROWS = [{"chave": "ALSD-999", "resumo": "REGRA DE DESTINAÇÃO 71 - CONFIGURAÇÃO", "status": "Cancelada", "grupo": "Cancelada", "resp": "Masaru Ohashi Junior", "criado": "2026-02-19", "fim": "2026-03-12", "corridos": "21", "uteis": "15", "mes": "2026-02"}, {"chave": "ALSD-1000", "resumo": "Solicitação de inclusão de campo ou área que informe a taxa geral de preenchimento do monitoramento no SIAFE", "status": "Identificada", "grupo": "Em aberto", "resp": "Masaru Ohashi Junior", "criado": "2026-02-20", "fim": "2026-10-15", "corridos": "237", "uteis": "163", "mes": "2026-02"}, {"chave": "ALSD-1001", "resumo": "Lista com Centro de custos", "status": "Identificada", "grupo": "Em aberto", "resp": "Masaru Ohashi Junior", "criado": "2026-02-25", "fim": "2026-10-15", "corridos": "232", "uteis": "160", "mes": "2026-02"}, {"chave": "ALSD-1002", "resumo": "Possibilidade de dedução automática de valor negativo em outro subitem", "status": "Identificada", "grupo": "Em aberto", "resp": "Masaru Ohashi Junior", "criado": "2026-02-25", "fim": "2026-10-15", "corridos": "232", "uteis": "160", "mes": "2026-02"}, {"chave": "ALSD-1003", "resumo": "Erro no Marcador de FOnte no Cubo \"Saldos Contábeis (Histórico)\"", "status": "Identificada", "grupo": "Em aberto", "resp": "Masaru Ohashi Junior", "criado": "2026-03-02", "fim": "2026-10-15", "corridos": "227", "uteis": "157", "mes": "2026-03"}, {"chave": "ALSD-1005", "resumo": "Inclusão de Tipo Patrimonial no registro de Transferência", "status": "Identificada", "grupo": "Em aberto", "resp": "Masaru Ohashi Junior", "criado": "2026-03-04", "fim": "2026-10-15", "corridos": "225", "uteis": "155", "mes": "2026-03"}, {"chave": "ALSD-1007", "resumo": "SIAFE NÃO ESTÁ CLASSIFICANDO AS RECEITAS", "status": "Finalizada", "grupo": "Atendida", "resp": "Bruno Chaves", "criado": "2026-03-05", "fim": "2026-03-10", "corridos": "5", "uteis": "3", "mes": "2026-03"}, {"chave": "ALSD-1008", "resumo": "Acrescentar Tipo de Documento na Importação da Receita", "status": "Identificada", "grupo": "Em aberto", "resp": "Masaru Ohashi Junior", "criado": "2026-03-09", "fim": "2026-10-15", "corridos": "220", "uteis": "152", "mes": "2026-03"}, {"chave": "ALSD-1009", "resumo": "ANULAÇÃO DE RECONHECIMENTO DE DEA - VALOR EQUIVOCADO", "status": "Identificada", "grupo": "Em aberto", "resp": "Masaru Ohashi Junior", "criado": "2026-03-09", "fim": "2026-10-15", "corridos": "220", "uteis": "152", "mes": "2026-03"}, {"chave": "ALSD-1010", "resumo": "Automatização do décimo terceiro", "status": "Identificada", "grupo": "Em aberto", "resp": "Masaru Ohashi Junior", "criado": "2026-03-11", "fim": "2026-10-15", "corridos": "218", "uteis": "150", "mes": "2026-03"}, {"chave": "ALSD-1011", "resumo": "Erro Assinador Digital", "status": "Finalizada", "grupo": "Atendida", "resp": "Maxsoel Alberton", "criado": "2026-03-27", "fim": "2026-04-23", "corridos": "27", "uteis": "17", "mes": "2026-03"}, {"chave": "ALSD-1012", "resumo": "MÓDULO ALPA-BENS MÓVEIS-GERAÇÃO DE RELATÓRIO DE MOVIMENTAÇÃO MENSAL DE BENS MÓVEIS-RMB", "status": "Em andamento", "grupo": "Em aberto", "resp": "Francisco Martins", "criado": "2026-03-27", "fim": "2026-10-15", "corridos": "202", "uteis": "138", "mes": "2026-03"}, {"chave": "ALSD-1013", "resumo": "Solicitação de Demonstração Funcional – Integração de Custos de Aquisição de Bens Móveis ao Módulo ALPA-SIAFE.", "status": "Identificada", "grupo": "Em aberto", "resp": "Masaru Ohashi Junior", "criado": "2026-04-06", "fim": "2026-10-15", "corridos": "192", "uteis": "133", "mes": "2026-04"}, {"chave": "ALSD-1014", "resumo": "ERRO AO ACESSAR O SIAFE", "status": "Homologado", "grupo": "Atendida", "resp": "Masaru Ohashi Junior", "criado": "2026-04-15", "fim": "2026-04-15", "corridos": "0", "uteis": "0", "mes": "2026-04"}, {"chave": "ALSD-1015", "resumo": "IMPORTAÇÃO DE BENS MÓVEIS-MÓDULO ALPA", "status": "Homologado", "grupo": "Atendida", "resp": "Lenon Isidorio", "criado": "2026-04-17", "fim": "2026-08-07", "corridos": "112", "uteis": "77", "mes": "2026-04"}, {"chave": "ALSD-1016", "resumo": "ERRO ASSINADOR", "status": "Finalizada", "grupo": "Atendida", "resp": "Maxsoel Alberton", "criado": "2026-04-23", "fim": "2026-04-29", "corridos": "6", "uteis": "4", "mes": "2026-04"}, {"chave": "ALSD-1017", "resumo": "ERRO ASSINADOR", "status": "Finalizada", "grupo": "Atendida", "resp": "Maxsoel Alberton", "criado": "2026-05-05", "fim": "2026-05-06", "corridos": "1", "uteis": "1", "mes": "2026-05"}, {"chave": "ALSD-1018", "resumo": "Atualização de dados da DGN", "status": "Identificada", "grupo": "Em aberto", "resp": "Masaru Ohashi Junior", "criado": "2026-05-06", "fim": "2026-10-15", "corridos": "162", "uteis": "113", "mes": "2026-05"}, {"chave": "ALSD-1019", "resumo": "SIAFE NÃO ESTÁ FUNCIONANDO.", "status": "Identificada", "grupo": "Em aberto", "resp": "Masaru Ohashi Junior", "criado": "2026-05-08", "fim": "2026-10-15", "corridos": "160", "uteis": "111", "mes": "2026-05"}, {"chave": "ALSD-1020", "resumo": "Função do Atributo \"Controla convênios\" no perfil das UGs", "status": "Disponível para homologação", "grupo": "Atendida", "resp": "Masaru Ohashi Junior", "criado": "2026-05-19", "fim": "2026-05-22", "corridos": "3", "uteis": "3", "mes": "2026-05"}, {"chave": "ALSD-1021", "resumo": "ATUALIZAÇÃO DE DADOS DGN", "status": "Disponível para homologação", "grupo": "Atendida", "resp": "Maxsoel Alberton", "criado": "2026-05-20", "fim": "2026-07-22", "corridos": "63", "uteis": "44", "mes": "2026-05"}, {"chave": "ALSD-1022", "resumo": "Atualização para marcadores orçamentários nas ações.", "status": "Identificada", "grupo": "Em aberto", "resp": "Masaru Ohashi Junior", "criado": "2026-05-20", "fim": "2026-10-15", "corridos": "148", "uteis": "103", "mes": "2026-05"}, {"chave": "ALSD-1023", "resumo": "Relatorios de Monitoramento Não Abre", "status": "Em andamento", "grupo": "Em aberto", "resp": "Rodrigo Oliveira", "criado": "2026-05-21", "fim": "2026-10-15", "corridos": "147", "uteis": "102", "mes": "2026-05"}, {"chave": "ALSD-1024", "resumo": "ERRO ASSINADOR", "status": "Finalizada", "grupo": "Atendida", "resp": "Bruno Chaves", "criado": "2026-05-22", "fim": "2026-08-24", "corridos": "94", "uteis": "65", "mes": "2026-05"}, {"chave": "ALSD-1025", "resumo": "Relatorio 10916 - Relatório 04 - Estrutura Programática - Temático Não Abre", "status": "Em andamento", "grupo": "Em aberto", "resp": "Rodrigo Oliveira", "criado": "2026-06-03", "fim": "2026-10-15", "corridos": "134", "uteis": "93", "mes": "2026-06"}, {"chave": "ALSD-1026", "resumo": "Abertura do SIAFE 2027", "status": "Homologado", "grupo": "Atendida", "resp": "Gedeon Junior", "criado": "2026-06-15", "fim": "2026-07-29", "corridos": "44", "uteis": "32", "mes": "2026-06"}, {"chave": "ALSD-1027", "resumo": "Agendamentos genéricos não estão sendo executados", "status": "Homologado", "grupo": "Atendida", "resp": "Kálley Wilkerson Rodrigues Alexandre", "criado": "2026-06-25", "fim": "2026-07-02", "corridos": "7", "uteis": "5", "mes": "2026-06"}, {"chave": "ALSD-1028", "resumo": "Erro conexão banco oracle siafe", "status": "Disponível para homologação", "grupo": "Atendida", "resp": "Maxsoel Alberton", "criado": "2026-07-10", "fim": "2026-07-13", "corridos": "3", "uteis": "1", "mes": "2026-07"}, {"chave": "ALSD-1029", "resumo": "ALPA-Denominação e funcionalidade de ícone", "status": "Homologado", "grupo": "Atendida", "resp": "Lenon Isidorio", "criado": "2026-08-06", "fim": "2026-08-17", "corridos": "11", "uteis": "7", "mes": "2026-08"}, {"chave": "ALSD-1036", "resumo": "Manual  atualizado-Módulo ALPA-Bens Móveis", "status": "Identificada", "grupo": "Em aberto", "resp": "Masaru Ohashi Junior", "criado": "2026-09-01", "fim": "2026-10-15", "corridos": "44", "uteis": "30", "mes": "2026-09"}, {"chave": "ALSD-1037", "resumo": "Registro de 4 bens, modalidade NE-Número de tombamentos", "status": "Homologado", "grupo": "Atendida", "resp": "Lenon Isidorio", "criado": "2026-09-02", "fim": "2026-09-25", "corridos": "23", "uteis": "16", "mes": "2026-09"}, {"chave": "ALSD-1038", "resumo": "DOCUMENTOS COM CONTRATOS SÃO IMPEDIDOS - RC 179", "status": "Em andamento", "grupo": "Em aberto", "resp": "Gedeon Junior", "criado": "2026-09-02", "fim": "2026-10-15", "corridos": "43", "uteis": "29", "mes": "2026-09"}, {"chave": "ALSD-1039", "resumo": "Erro no usuário utilizado para atualização dos dados do portal da transparência", "status": "Finalizada", "grupo": "Atendida", "resp": "Maxsoel Alberton", "criado": "2026-09-14", "fim": "2026-09-17", "corridos": "3", "uteis": "3", "mes": "2026-09"}, {"chave": "ALSD-1040", "resumo": "Gerador de relatório PLOA 2027", "status": "Disponível para homologação", "grupo": "Atendida", "resp": "Rodrigo Oliveira", "criado": "2026-09-14", "fim": "2026-09-17", "corridos": "3", "uteis": "3", "mes": "2026-09"}, {"chave": "ALSD-1042", "resumo": "SIAFE FORA DO AR.", "status": "Identificada", "grupo": "Em aberto", "resp": "Gedeon Junior", "criado": "2026-09-29", "fim": "2026-10-15", "corridos": "16", "uteis": "11", "mes": "2026-09"}, {"chave": "ALSD-1043", "resumo": "GERAÇÃO DE ARQUIVO DE REMESSA OB INEXISTENTES", "status": "Cancelada", "grupo": "Cancelada", "resp": "Masaru Ohashi Junior", "criado": "2026-10-01", "fim": "2026-10-13", "corridos": "12", "uteis": "7", "mes": "2026-10"}, {"chave": "ALSD-1044", "resumo": "REATIVAR APLICAÇÃO DO SIAFE E SECURITY PRODUÇÃO", "status": "Em andamento", "grupo": "Em aberto", "resp": "Maxsoel Alberton", "criado": "2026-10-06", "fim": "2026-10-15", "corridos": "9", "uteis": "6", "mes": "2026-10"}, {"chave": "ALSD-1045", "resumo": "Ações de melhorias de segurança no sistema", "status": "Identificada", "grupo": "Em aberto", "resp": "Gedeon Junior", "criado": "2026-10-13", "fim": "2026-10-15", "corridos": "2", "uteis": "2", "mes": "2026-10"}];
+window.dash = (() => {
+  const calcs = {}, store = { chamados: window.DASH_ROWS }, subs = [];
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  return {
+    calc(id, o) { calcs[id] = o; },
+    data(id) {
+      if (!(id in store) && calcs[id]) store[id] = calcs[id].fn(...calcs[id].inputs.map(i => this.data(i).data));
+      const d = store[id] || [];
+      return { status: 'ok', data: d, rows: d, refreshing: false, meta: [] };
+    },
+    onData(fn) { subs.push(fn); const run = () => fn(); document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', run) : run(); },
+    _redraw() { subs.forEach(f => f()); },
+    get colors() { return [css('--c0'), css('--c1')]; }
+  };
+})();
+let _rt; window.addEventListener('resize', () => { clearTimeout(_rt); _rt = setTimeout(() => dash._redraw(), 150); });
+</script>
+</head>
+<body>
+<div id="dash-root">
+<style>
+.jr { font-family: var(--font-anthropic-sans); display: flex; flex-direction: column; gap: var(--cds-gap-lg); }
+.jr h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; }
+.jr .lead { color: var(--color-fg-muted); margin: var(--cds-gap-xs) 0 0; font-size: var(--cds-font-size-body); }
+.jr h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+.jr .note { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); margin: var(--cds-gap-xs) 0 var(--cds-gap-md); }
+.jr .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9.5rem), 1fr)); gap: var(--cds-gap-md); }
+.jr .card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; }
+.jr .tile .lbl { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.jr .tile .val { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); font-variant-numeric: tabular-nums; margin-top: var(--cds-gap-xs); }
+.jr .tile .sub { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin-top: var(--cds-gap-xs); }
+.jr .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: var(--cds-gap-md); }
+.jr .tw { overflow-x: auto; }
+.jr table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+.jr th, .jr td { text-align: left; padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+.jr th { color: var(--color-fg-muted); font-weight: var(--cds-font-weight-medium); white-space: nowrap; }
+.jr td.n, .jr th.n { text-align: right; white-space: nowrap; }
+.jr td.res { min-width: 14rem; }
+.jr tr.open td { color: var(--color-fg-muted); }
+.jr tr.cancel td { color: var(--color-fg-muted); text-decoration: line-through; text-decoration-color: var(--color-border-line); }
+.jr .pill { display: inline-block; padding: 0 var(--cds-pad-xs); border-radius: var(--cds-radius); border: 1px solid var(--color-border-line); white-space: nowrap; text-decoration: none; }
+.jr .pill.ok { color: var(--color-ok); }
+.jr .pill.warn { color: var(--color-warn); }
+.jr .months { display: flex; flex-direction: column; gap: var(--cds-gap-md); }
+.jr .mhead { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--cds-gap-sm); align-items: baseline; }
+.jr .mstats { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.jr .chart { position: relative; min-height: 240px; }
+.jr .tip { position: absolute; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); pointer-events: none; display: none; white-space: nowrap; }
+.jr .tip .d { color: var(--cds-text-secondary); }
+.jr .legend { display: flex; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin-bottom: var(--cds-gap-sm); }
+.jr .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: middle; }
+.jr .fail { display: flex; align-items: center; justify-content: center; gap: 6px; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); min-height: 120px; }
+.jr .fail::before { content: ""; width: .375rem; height: .375rem; border-radius: 50%; background: var(--color-bad); }
+.jr [data-dash-source-state=empty] { color: transparent; }
+.jr [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+</style>
+
+<div class="jr">
+  <header>
+    <h1>Tempo de resolução dos chamados ALSD</h1>
+    <p class="lead" id="takeaway" data-source="kpis">—</p>
+  </header>
+
+  <section class="tiles" id="kpis">
+    <div class="card tile"><div class="lbl">Chamados abertos no período</div><div class="val dash-skeleton" data-source="kpis" data-field="total" data-row="0">—</div><div class="sub">fev–out 2026</div></div>
+    <div class="card tile"><div class="lbl">Issues atendidas</div><div class="val dash-skeleton" data-source="kpis" data-field="atendidas" data-row="0">—</div><div class="sub">finalizadas, homologadas ou p/ homologação</div></div>
+    <div class="card tile"><div class="lbl">Tempo médio · dias úteis</div><div class="val dash-skeleton" data-source="kpis" data-field="media_uteis" data-row="0">—</div><div class="sub">das atendidas</div></div>
+    <div class="card tile"><div class="lbl">Tempo médio · dias corridos</div><div class="val dash-skeleton" data-source="kpis" data-field="media_corridos" data-row="0">—</div><div class="sub">das atendidas</div></div>
+    <div class="card tile"><div class="lbl">Mediana · dias úteis</div><div class="val dash-skeleton" data-source="kpis" data-field="mediana_uteis" data-row="0">—</div><div class="sub">metade resolvida até aqui</div></div>
+    <div class="card tile"><div class="lbl">Em aberto hoje</div><div class="val dash-skeleton" data-source="kpis" data-field="em_aberto" data-row="0">—</div><div class="sub">identificadas ou em andamento</div></div>
+  </section>
+
+  <section class="card" id="quadro">
+    <h2>Quadro estatístico por mês de abertura</h2>
+    <p class="note">Tempos calculados só sobre as issues atendidas. Dias úteis excluem fins de semana e feriados nacionais (inclui Carnaval e Corpus Christi).</p>
+    <div class="tw">
+      <table data-source="por_mes" data-row-key="mes">
+        <thead><tr>
+          <th data-field="mes">Mês</th>
+          <th class="n" data-field="abertos">Abertos</th>
+          <th class="n" data-field="atendidas">Atendidas</th>
+          <th class="n" data-field="em_aberto">Em aberto</th>
+          <th class="n" data-field="canceladas">Canceladas</th>
+          <th class="n" data-field="media_uteis">Média úteis</th>
+          <th class="n" data-field="media_corridos">Média corridos</th>
+          <th class="n" data-field="mediana_uteis">Mediana úteis</th>
+          <th class="n" data-field="min_uteis">Mín. úteis</th>
+          <th class="n" data-field="max_uteis">Máx. úteis</th>
+        </tr></thead>
+        <tbody id="quadro-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="grid2">
+    <div class="card" id="grafico">
+      <h2>Tempo médio de atendimento por mês</h2>
+      <p class="note">Média das issues atendidas, pelo mês em que foram abertas.</p>
+      <div class="legend"><span><i id="lg0"></i>Dias úteis</span><span><i id="lg1"></i>Dias corridos</span></div>
+      <div class="chart dash-skeleton" id="chart" data-source="por_mes"></div>
+    </div>
+    <div class="card" id="responsaveis">
+      <h2>Por responsável</h2>
+      <p class="note">Issues atendidas e tempo médio de cada responsável.</p>
+      <div class="tw">
+        <table data-source="por_resp" data-row-key="resp">
+          <thead><tr>
+            <th data-field="resp">Responsável</th>
+            <th class="n" data-field="atendidas">Atendidas</th>
+            <th class="n" data-field="media_uteis">Média úteis</th>
+            <th class="n" data-field="media_corridos">Média corridos</th>
+            <th class="n" data-field="em_aberto">Em aberto</th>
+          </tr></thead>
+          <tbody id="resp-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="meses">
+    <h2>Chamados por mês</h2>
+    <p class="note">Para as atendidas e canceladas, o tempo vai da abertura à última atualização. Para as em aberto (em cinza), mostra há quanto tempo estão abertas até 15/10/2026 (data de referência).</p>
+    <div class="months" id="months"></div>
+  </section>
+</div>
+
+<script>
+(() => {
+  const ATEND = 'Atendida';
+  const num = r => ({ ...r, corridos: Number(r.corridos), uteis: Number(r.uteis) });
+  const mean = a => a.length ? a.reduce((s, x) => s + x, 0) / a.length : null;
+  const median = a => { if (!a.length) return null; const s = [...a].sort((x, y) => x - y), m = Math.floor(s.length / 2); return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
+  const r1 = v => v == null ? null : Math.round(v * 10) / 10;
+
+  dash.calc('kpis', {
+    inputs: ['chamados'],
+    title: 'Indicadores gerais',
+    description: 'Contagens por situação e médias/mediana de tempo das issues atendidas.',
+    fn: (chamados) => {
+      const at = chamados.filter(r => r.grupo === 'Atendida');
+      const u = at.map(r => Number(r.uteis)), c = at.map(r => Number(r.corridos));
+      const avg = a => a.length ? Math.round(a.reduce((s, x) => s + x, 0) / a.length * 10) / 10 : null;
+      const s = [...u].sort((x, y) => x - y), m = Math.floor(s.length / 2);
+      return [{
+        total: chamados.length,
+        atendidas: at.length,
+        em_aberto: chamados.filter(r => r.grupo === 'Em aberto').length,
+        canceladas: chamados.filter(r => r.grupo === 'Cancelada').length,
+        media_uteis: avg(u),
+        media_corridos: avg(c),
+        mediana_uteis: s.length ? (s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2) : null
+      }];
+    }
+  });
+
+  dash.calc('por_mes', {
+    inputs: ['chamados'],
+    title: 'Estatística por mês',
+    description: 'Por mês de abertura: contagens por situação e tempo médio, mediano, mínimo e máximo das atendidas.',
+    fn: (chamados) => {
+      const meses = [...new Set(chamados.map(r => r.mes))].sort();
+      return meses.map(mes => {
+        const rs = chamados.filter(r => r.mes === mes);
+        const at = rs.filter(r => r.grupo === 'Atendida');
+        const u = at.map(r => Number(r.uteis)), c = at.map(r => Number(r.corridos));
+        const avg = a => a.length ? Math.round(a.reduce((s, x) => s + x, 0) / a.length * 10) / 10 : null;
+        const s = [...u].sort((x, y) => x - y), m = Math.floor(s.length / 2);
+        return {
+          mes, abertos: rs.length, atendidas: at.length,
+          em_aberto: rs.filter(r => r.grupo === 'Em aberto').length,
+          canceladas: rs.filter(r => r.grupo === 'Cancelada').length,
+          media_uteis: avg(u), media_corridos: avg(c),
+          mediana_uteis: s.length ? (s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2) : null,
+          min_uteis: s.length ? s[0] : null, max_uteis: s.length ? s[s.length - 1] : null
+        };
+      });
+    }
+  });
+
+  dash.calc('por_resp', {
+    inputs: ['chamados'],
+    title: 'Estatística por responsável',
+    description: 'Por responsável: issues atendidas, tempo médio delas e chamados ainda em aberto.',
+    fn: (chamados) => {
+      const resps = [...new Set(chamados.map(r => r.resp))];
+      const avg = a => a.length ? Math.round(a.reduce((s, x) => s + x, 0) / a.length * 10) / 10 : null;
+      return resps.map(resp => {
+        const rs = chamados.filter(r => r.resp === resp);
+        const at = rs.filter(r => r.grupo === 'Atendida');
+        return { resp, atendidas: at.length,
+          media_uteis: avg(at.map(r => Number(r.uteis))),
+          media_corridos: avg(at.map(r => Number(r.corridos))),
+          em_aberto: rs.filter(r => r.grupo === 'Em aberto').length };
+      }).sort((a, b) => b.atendidas - a.atendidas || a.resp.localeCompare(b.resp));
+    }
+  });
+
+  const MESES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+  const mesNome = m => MESES[+m.slice(5, 7) - 1] + ' ' + m.slice(0, 4);
+  const mesCurto = m => MESES[+m.slice(5, 7) - 1].slice(0, 3) + '/' + m.slice(2, 4);
+  const dt = d => d.slice(8, 10) + '/' + d.slice(5, 7) + '/' + d.slice(0, 4);
+  const f1 = v => v == null ? '–' : v.toLocaleString('pt-BR', { maximumFractionDigits: 1 });
+  const dias = v => v == null ? '–' : f1(v) + (v === 1 ? ' dia' : ' dias');
+
+  const failLine = el => { el.innerHTML = ''; const d = document.createElement('div'); d.className = 'fail'; d.textContent = 'Failed to load'; el.appendChild(d); };
+
+  function cell(tr, text, cls) { const td = tr.insertCell(); td.textContent = text; if (cls) td.className = cls; return td; }
+
+  function drawChart(rows) {
+    const box = document.getElementById('chart');
+    box.innerHTML = '';
+    box.classList.remove('dash-skeleton');
+    const data = rows.filter(r => r.media_uteis != null);
+    const W = Math.max(280, box.clientWidth), H = 240;
+    const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+    const yMax = d3.max(data, d => d.media_corridos) || 1;
+    const y = d3.scaleLinear([0, yMax], [H - 24, 10]).nice();
+    const probe = svg.append('text').attr('font-size', 11).text(d3.max(y.ticks(4)));
+    const ml = probe.node().getComputedTextLength() + 10; probe.remove();
+    const x0 = d3.scaleBand(data.map(d => d.mes), [ml, W - 4]).padding(0.25);
+    const x1 = d3.scaleBand(['media_uteis', 'media_corridos'], [0, x0.bandwidth()]).padding(0.1);
+    const cols = [dash.colors[0], dash.colors[1]];
+    document.getElementById('lg0').style.background = cols[0];
+    document.getElementById('lg1').style.background = cols[1];
+    svg.append('g').selectAll('line').data(y.ticks(4)).join('line')
+      .attr('x1', ml).attr('x2', W - 4).attr('y1', d => y(d)).attr('y2', d => y(d))
+      .attr('stroke', 'var(--cds-chart-grid)');
+    svg.append('g').selectAll('text').data(y.ticks(4)).join('text')
+      .attr('x', ml - 6).attr('y', d => y(d)).attr('dy', '0.32em').attr('text-anchor', 'end')
+      .attr('font-size', 11).attr('fill', 'var(--color-fg-muted)').text(d => d);
+    svg.append('g').selectAll('text').data(data).join('text')
+      .attr('x', d => x0(d.mes) + x0.bandwidth() / 2).attr('y', H - 6).attr('text-anchor', 'middle')
+      .attr('font-size', 11).attr('fill', 'var(--color-fg-muted)').text(d => mesCurto(d.mes));
+    const tip = d3.select(box).append('div').attr('class', 'tip');
+    const g = svg.append('g').selectAll('g').data(data).join('g').attr('transform', d => `translate(${x0(d.mes)},0)`);
+    g.selectAll('rect').data(d => ['media_uteis', 'media_corridos'].map((k, i) => ({ d, k, i, v: d[k] }))).join('rect')
+      .attr('x', o => x1(o.k)).attr('width', Math.min(32, x1.bandwidth()))
+      .attr('y', o => y(o.v)).attr('height', o => Math.max(0, y(0) - y(o.v)))
+      .attr('rx', 4).attr('fill', o => cols[o.i]);
+    g.append('rect').attr('x', 0).attr('width', x0.bandwidth()).attr('y', 0).attr('height', H - 20).attr('fill', 'transparent')
+      .on('mousemove', (ev, d) => {
+        tip.style('display', 'block').html('');
+        tip.append('div').attr('class', 'd').text(mesNome(d.mes) + ' · ' + d.atendidas + ' atendida(s)');
+        tip.append('div').text('Dias úteis: ' + f1(d.media_uteis));
+        tip.append('div').text('Dias corridos: ' + f1(d.media_corridos));
+        const [px, py] = d3.pointer(ev, box);
+        const tw = tip.node().offsetWidth;
+        tip.style('left', Math.max(0, Math.min(box.clientWidth - tw, px + 12)) + 'px').style('top', Math.max(0, py - 40) + 'px');
+      })
+      .on('mouseleave', () => tip.style('display', 'none'));
+  }
+
+  dash.onData(() => {
+    const K = dash.data('kpis'), M = dash.data('por_mes'), R = dash.data('por_resp'), C = dash.data('chamados');
+
+    // KPIs
+    document.querySelectorAll('#kpis [data-field]').forEach(el => {
+      if (K.status === 'ok' && K.data.length) {
+        el.classList.remove('dash-skeleton');
+        const v = K.data[0][el.dataset.field];
+        el.textContent = /media|mediana/.test(el.dataset.field) ? f1(v) : String(v);
+      } else if (K.status === 'error') { el.classList.remove('dash-skeleton'); el.textContent = '—'; }
+      else el.textContent = '—';
+    });
+    const tk = document.getElementById('takeaway');
+    if (K.status === 'ok' && K.data.length) {
+      const k = K.data[0];
+      tk.textContent = `${k.atendidas} de ${k.total} chamados foram atendidos, em média em ${f1(k.media_uteis)} dias úteis (${f1(k.media_corridos)} corridos); a mediana de ${f1(k.mediana_uteis)} dias úteis mostra que a maioria é resolvida rápido e poucos casos longos puxam a média. ${k.em_aberto} seguem em aberto.`;
+    } else tk.textContent = '—';
+
+    // Quadro
+    const qb = document.getElementById('quadro-body');
+    qb.innerHTML = '';
+    if (M.status === 'ok') {
+      M.data.forEach(r => {
+        const tr = qb.insertRow(); tr.dataset.key = r.mes;
+        cell(tr, mesNome(r.mes));
+        cell(tr, String(r.abertos), 'n'); cell(tr, String(r.atendidas), 'n');
+        cell(tr, String(r.em_aberto), 'n'); cell(tr, String(r.canceladas), 'n');
+        cell(tr, f1(r.media_uteis), 'n'); cell(tr, f1(r.media_corridos), 'n');
+        cell(tr, f1(r.mediana_uteis), 'n'); cell(tr, f1(r.min_uteis), 'n'); cell(tr, f1(r.max_uteis), 'n');
+      });
+    } else if (M.status === 'error') { const tr = qb.insertRow(); const td = tr.insertCell(); td.colSpan = 10; failLine(td); }
+
+    // Chart
+    if (M.status === 'ok') drawChart(M.data);
+    else if (M.status === 'error') { document.getElementById('chart').classList.remove('dash-skeleton'); failLine(document.getElementById('chart')); }
+
+    // Responsáveis
+    const rb = document.getElementById('resp-body'); rb.innerHTML = '';
+    if (R.status === 'ok') {
+      R.data.forEach(r => {
+        const tr = rb.insertRow(); tr.dataset.key = r.resp;
+        cell(tr, r.resp); cell(tr, String(r.atendidas), 'n');
+        cell(tr, f1(r.media_uteis), 'n'); cell(tr, f1(r.media_corridos), 'n'); cell(tr, String(r.em_aberto), 'n');
+      });
+    } else if (R.status === 'error') { const tr = rb.insertRow(); const td = tr.insertCell(); td.colSpan = 5; failLine(td); }
+
+    // Tabelas mensais
+    const host = document.getElementById('months'); host.innerHTML = '';
+    if (C.status === 'ok') {
+      const rows = C.data.map(num);
+      const meses = [...new Set(rows.map(r => r.mes))].sort().reverse();
+      meses.forEach(mes => {
+        const rs = rows.filter(r => r.mes === mes);
+        const at = rs.filter(r => r.grupo === ATEND);
+        const card = document.createElement('div'); card.className = 'card'; card.id = 'mes-' + mes;
+        const head = document.createElement('div'); head.className = 'mhead';
+        const h = document.createElement('h2'); h.textContent = mesNome(mes);
+        const st = document.createElement('div'); st.className = 'mstats';
+        st.textContent = `${rs.length} aberto(s) · ${at.length} atendido(s)` + (at.length ? ` · média ${dias(r1(mean(at.map(r => r.uteis))))} úteis / ${dias(r1(mean(at.map(r => r.corridos))))} corridos` : '');
+        head.append(h, st); card.appendChild(head);
+        const wrap = document.createElement('div'); wrap.className = 'tw'; wrap.style.marginTop = 'var(--cds-gap-sm)';
+        const t = document.createElement('table');
+        t.dataset.source = 'chamados'; t.dataset.rowKey = 'chave';
+        const hr = t.createTHead().insertRow();
+        [['chave','Chave'],['resumo','Resumo'],['status','Status'],['resp','Responsável'],['criado','Criado'],['fim','Atualizado / ref.'],['uteis','Dias úteis'],['corridos','Dias corridos']].forEach(([f, l]) => {
+          const th = document.createElement('th'); th.dataset.field = f; th.textContent = l;
+          if (f === 'uteis' || f === 'corridos') th.className = 'n';
+          hr.appendChild(th);
+        });
+        const tb = t.createTBody();
+        rs.forEach(r => {
+          const tr = tb.insertRow(); tr.dataset.key = r.chave;
+          if (r.grupo === 'Em aberto') tr.className = 'open';
+          if (r.grupo === 'Cancelada') tr.className = 'cancel';
+          cell(tr, r.chave); cell(tr, r.resumo, 'res');
+          const sc = tr.insertCell(); const p = document.createElement('span');
+          p.className = 'pill' + (r.grupo === ATEND ? ' ok' : r.grupo === 'Em aberto' ? ' warn' : '');
+          p.textContent = r.status; sc.appendChild(p);
+          cell(tr, r.resp); cell(tr, dt(r.criado));
+          cell(tr, dt(r.fim));
+          cell(tr, String(r.uteis), 'n'); cell(tr, String(r.corridos), 'n');
+        });
+        wrap.appendChild(t); card.appendChild(wrap); host.appendChild(card);
+      });
+    } else if (C.status === 'error') failLine(host);
+  });
+})();
+</script>
+
+</div>
+</body>
+</html>
