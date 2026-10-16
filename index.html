@@ -3,21 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tempo de resolução ALSD</title>
+<title>Chamados ALSD</title>
 <style>
 :root{--color-fg:#1f1e1c;--color-fg-muted:#6b6862;--color-bg:#faf9f6;--color-panel:#ffffff;--color-border-line:#e6e3dc;--color-ok:#2f7d4f;--color-warn:#a86412;--color-bad:#c0392b;
---c0:#3b6fd9;--c1:#d97b3b;
+--c0:#3b6fd9;--c1:#d97b3b;--c2:#c0392b;--cds-chart-muted:#b5b1a8;
 --font-anthropic-sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--font-anthropic-serif:Georgia,"Times New Roman",serif;
 --cds-font-size-caption:.8125rem;--cds-font-size-body:.9375rem;--cds-font-size-heading:1.0625rem;--cds-font-size-title:1.875rem;--cds-font-weight-medium:500;
 --cds-gap-xs:4px;--cds-gap-sm:8px;--cds-gap-md:16px;--cds-gap-lg:28px;--cds-pad-xs:4px;--cds-pad-sm:8px;--cds-pad-lg:20px;--cds-radius:8px;
 --cds-chart-grid:#ece9e2;--cds-surface-popover:#ffffff;--cds-border:#e6e3dc;--cds-shadow-popover:0 4px 16px rgba(0,0,0,.12);--cds-text-secondary:#6b6862;--cds-dur-slow:.3s;}
-@media (prefers-color-scheme: dark){:root{--color-fg:#ece9e2;--color-fg-muted:#a29e96;--color-bg:#1a1917;--color-panel:#24231f;--color-border-line:#38362f;--color-ok:#6fcf97;--color-warn:#e3a857;--color-bad:#ef6f61;--c0:#7aa2f7;--c1:#f0a36b;--cds-chart-grid:#33312b;--cds-surface-popover:#2b2a25;--cds-border:#3d3b34;--cds-text-secondary:#a29e96;}}
+@media (prefers-color-scheme: dark){:root{--color-fg:#ece9e2;--color-fg-muted:#a29e96;--color-bg:#1a1917;--color-panel:#24231f;--color-border-line:#38362f;--color-ok:#6fcf97;--color-warn:#e3a857;--color-bad:#ef6f61;--c0:#7aa2f7;--c1:#f0a36b;--c2:#ef6f61;--cds-chart-muted:#5e5b54;--cds-chart-grid:#33312b;--cds-surface-popover:#2b2a25;--cds-border:#3d3b34;--cds-text-secondary:#a29e96;}}
 body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:var(--font-anthropic-sans);}
 #dash-root{max-width:1200px;margin:0 auto;padding:32px 16px 48px;}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script>
-window.DASH_ROWS = [{"chave": "ALSD-999", "resumo": "REGRA DE DESTINAÇÃO 71 - CONFIGURAÇÃO", "status": "Cancelada", "grupo": "Cancelada", "reporter": "Maria Teresa Gomes S. Mendes", "criado": "2026-02-19 13:23", "resolvido": "2026-03-12 14:30", "corridos": "21", "uteis": "15", "horas": "505.1", "mes": "2026-02"}, {"chave": "ALSD-1000", "resumo": "Solicitação de inclusão de campo ou área que informe a taxa geral de preenchimento do monitoramento no SIAFE", "status": "Identificada", "grupo": "Em aberto", "reporter": "Marina Beatriz de Lima Oliveira Silva", "criado": "2026-02-20 10:59", "resolvido": "", "corridos": "237", "uteis": "163", "horas": "5697.6", "mes": "2026-02"}, {"chave": "ALSD-1001", "resumo": "Lista com Centro de custos", "status": "Identificada", "grupo": "Em aberto", "reporter": "Eli Xavier de Brito Neto", "criado": "2026-02-25 09:54", "resolvido": "", "corridos": "232", "uteis": "160", "horas": "5578.7", "mes": "2026-02"}, {"chave": "ALSD-1002", "resumo": "Possibilidade de dedução automática de valor negativo em outro subitem", "status": "Identificada", "grupo": "Em aberto", "reporter": "Eli Xavier de Brito Neto", "criado": "2026-02-25 14:07", "resolvido": "", "corridos": "232", "uteis": "160", "horas": "5574.5", "mes": "2026-02"}, {"chave": "ALSD-1003", "resumo": "Erro no Marcador de FOnte no Cubo \"Saldos Contábeis (Histórico)\"", "status": "Identificada", "grupo": "Em aberto", "reporter": "Marcos Malta", "criado": "2026-03-02 11:36", "resolvido": "", "corridos": "227", "uteis": "157", "horas": "5457.0", "mes": "2026-03"}, {"chave": "ALSD-1005", "resumo": "Inclusão de Tipo Patrimonial no registro de Transferência", "status": "Identificada", "grupo": "Em aberto", "reporter": "Carlos Venâncio Barreto Ferreira", "criado": "2026-03-04 12:25", "resolvido": "", "corridos": "225", "uteis": "155", "horas": "5408.2", "mes": "2026-03"}, {"chave": "ALSD-1007", "resumo": "SIAFE NÃO ESTÁ CLASSIFICANDO AS RECEITAS", "status": "Finalizada", "grupo": "Resolvida", "reporter": "Epson Acioli Silveira", "criado": "2026-03-05 11:34", "resolvido": "2026-03-10 15:17", "corridos": "5", "uteis": "3", "horas": "123.7", "mes": "2026-03"}, {"chave": "ALSD-1008", "resumo": "Acrescentar Tipo de Documento na Importação da Receita", "status": "Identificada", "grupo": "Em aberto", "reporter": "Brenda Rocha Nunes Soares", "criado": "2026-03-09 09:38", "resolvido": "", "corridos": "220", "uteis": "152", "horas": "5291.0", "mes": "2026-03"}, {"chave": "ALSD-1009", "resumo": "ANULAÇÃO DE RECONHECIMENTO DE DEA - VALOR EQUIVOCADO", "status": "Identificada", "grupo": "Em aberto", "reporter": "Benildo Gomes de Farias", "criado": "2026-03-09 16:24", "resolvido": "", "corridos": "220", "uteis": "152", "horas": "5284.2", "mes": "2026-03"}, {"chave": "ALSD-1010", "resumo": "Automatização do décimo terceiro", "status": "Identificada", "grupo": "Em aberto", "reporter": "Eli Xavier de Brito Neto", "criado": "2026-03-11 12:46", "resolvido": "", "corridos": "218", "uteis": "150", "horas": "5239.8", "mes": "2026-03"}, {"chave": "ALSD-1011", "resumo": "Erro Assinador Digital", "status": "Finalizada", "grupo": "Resolvida", "reporter": "João Pedro Meira Reis", "criado": "2026-03-27 11:22", "resolvido": "2026-03-27 12:40", "corridos": "0", "uteis": "0", "horas": "1.3", "mes": "2026-03"}, {"chave": "ALSD-1012", "resumo": "MÓDULO ALPA-BENS MÓVEIS-GERAÇÃO DE RELATÓRIO DE MOVIMENTAÇÃO MENSAL DE BENS MÓVEIS-RMB", "status": "Em andamento", "grupo": "Em aberto", "reporter": "jose carlos de vasconcelos", "criado": "2026-03-27 12:21", "resolvido": "", "corridos": "202", "uteis": "138", "horas": "4856.3", "mes": "2026-03"}, {"chave": "ALSD-1013", "resumo": "Solicitação de Demonstração Funcional – Integração de Custos de Aquisição de Bens Móveis ao Módulo ALPA-SIAFE.", "status": "Identificada", "grupo": "Em aberto", "reporter": "jose carlos de vasconcelos", "criado": "2026-04-06 13:22", "resolvido": "", "corridos": "192", "uteis": "133", "horas": "4615.2", "mes": "2026-04"}, {"chave": "ALSD-1014", "resumo": "ERRO AO ACESSAR O SIAFE", "status": "Homologado", "grupo": "Resolvida", "reporter": "Cássia Thissiane Gerbase Tenório Calheiros de Souza", "criado": "2026-04-15 07:50", "resolvido": "2026-04-15 09:54", "corridos": "0", "uteis": "0", "horas": "2.1", "mes": "2026-04"}, {"chave": "ALSD-1015", "resumo": "IMPORTAÇÃO DE BENS MÓVEIS-MÓDULO ALPA", "status": "Homologado", "grupo": "Resolvida", "reporter": "jose carlos de vasconcelos", "criado": "2026-04-17 13:30", "resolvido": "2026-08-07 11:06", "corridos": "112", "uteis": "77", "horas": "2685.6", "mes": "2026-04"}, {"chave": "ALSD-1016", "resumo": "ERRO ASSINADOR", "status": "Finalizada", "grupo": "Resolvida", "reporter": "Cássia Thissiane Gerbase Tenório Calheiros de Souza", "criado": "2026-04-23 09:00", "resolvido": "2026-04-23 10:18", "corridos": "0", "uteis": "0", "horas": "1.3", "mes": "2026-04"}, {"chave": "ALSD-1017", "resumo": "ERRO ASSINADOR", "status": "Finalizada", "grupo": "Resolvida", "reporter": "Cássia Thissiane Gerbase Tenório Calheiros de Souza", "criado": "2026-05-05 11:04", "resolvido": "2026-05-06 09:30", "corridos": "1", "uteis": "1", "horas": "22.4", "mes": "2026-05"}, {"chave": "ALSD-1018", "resumo": "Atualização de dados da DGN", "status": "Identificada", "grupo": "Em aberto", "reporter": "Brenda Rocha Nunes Soares", "criado": "2026-05-06 15:43", "resolvido": "", "corridos": "162", "uteis": "113", "horas": "3892.9", "mes": "2026-05"}, {"chave": "ALSD-1019", "resumo": "SIAFE NÃO ESTÁ FUNCIONANDO.", "status": "Identificada", "grupo": "Em aberto", "reporter": "Epson Acioli Silveira", "criado": "2026-05-08 08:04", "resolvido": "", "corridos": "160", "uteis": "111", "horas": "3852.6", "mes": "2026-05"}, {"chave": "ALSD-1020", "resumo": "Função do Atributo \"Controla convênios\" no perfil das UGs", "status": "Disponível para homologação", "grupo": "Em homologação", "reporter": "Rafael Marques da Silva", "criado": "2026-05-19 14:58", "resolvido": "", "corridos": "149", "uteis": "104", "horas": "3581.6", "mes": "2026-05"}, {"chave": "ALSD-1021", "resumo": "ATUALIZAÇÃO DE DADOS DGN", "status": "Disponível para homologação", "grupo": "Em homologação", "reporter": "Cássia Thissiane Gerbase Tenório Calheiros de Souza", "criado": "2026-05-20 13:19", "resolvido": "", "corridos": "148", "uteis": "103", "horas": "3559.3", "mes": "2026-05"}, {"chave": "ALSD-1022", "resumo": "Atualização para marcadores orçamentários nas ações.", "status": "Identificada", "grupo": "Em aberto", "reporter": "Marcos Malta", "criado": "2026-05-20 17:22", "resolvido": "", "corridos": "148", "uteis": "103", "horas": "3555.2", "mes": "2026-05"}, {"chave": "ALSD-1023", "resumo": "Relatorios de Monitoramento Não Abre", "status": "Em andamento", "grupo": "Em aberto", "reporter": "Marina Beatriz de Lima Oliveira Silva", "criado": "2026-05-21 09:54", "resolvido": "", "corridos": "147", "uteis": "102", "horas": "3538.7", "mes": "2026-05"}, {"chave": "ALSD-1024", "resumo": "ERRO ASSINADOR", "status": "Finalizada", "grupo": "Resolvida", "reporter": "Cássia Thissiane Gerbase Tenório Calheiros de Souza", "criado": "2026-05-22 10:41", "resolvido": "2026-08-24 09:02", "corridos": "94", "uteis": "65", "horas": "2254.4", "mes": "2026-05"}, {"chave": "ALSD-1025", "resumo": "Relatorio 10916 - Relatório 04 - Estrutura Programática - Temático Não Abre", "status": "Em andamento", "grupo": "Em aberto", "reporter": "Marina Beatriz de Lima Oliveira Silva", "criado": "2026-06-03 16:05", "resolvido": "", "corridos": "134", "uteis": "93", "horas": "3220.5", "mes": "2026-06"}, {"chave": "ALSD-1026", "resumo": "Abertura do SIAFE 2027", "status": "Homologado", "grupo": "Resolvida", "reporter": "Marcos Malta", "criado": "2026-06-15 15:27", "resolvido": "2026-07-29 15:15", "corridos": "44", "uteis": "32", "horas": "1055.8", "mes": "2026-06"}, {"chave": "ALSD-1027", "resumo": "Agendamentos genéricos não estão sendo executados", "status": "Homologado", "grupo": "Resolvida", "reporter": "Diego Rodrigues", "criado": "2026-06-25 10:09", "resolvido": "2026-07-02 11:44", "corridos": "7", "uteis": "5", "horas": "169.6", "mes": "2026-06"}, {"chave": "ALSD-1028", "resumo": "Erro conexão banco oracle siafe", "status": "Disponível para homologação", "grupo": "Em homologação", "reporter": "Diego Rodrigues", "criado": "2026-07-10 10:16", "resolvido": "", "corridos": "97", "uteis": "67", "horas": "2338.4", "mes": "2026-07"}, {"chave": "ALSD-1029", "resumo": "ALPA-Denominação e funcionalidade de ícone", "status": "Homologado", "grupo": "Resolvida", "reporter": "jose carlos de vasconcelos", "criado": "2026-08-06 10:54", "resolvido": "2026-08-17 16:19", "corridos": "11", "uteis": "7", "horas": "269.4", "mes": "2026-08"}, {"chave": "ALSD-1036", "resumo": "Manual atualizado-Módulo ALPA-Bens Móveis", "status": "Identificada", "grupo": "Em aberto", "reporter": "jose carlos de vasconcelos", "criado": "2026-09-01 10:23", "resolvido": "", "corridos": "44", "uteis": "30", "horas": "1066.2", "mes": "2026-09"}, {"chave": "ALSD-1037", "resumo": "Registro de 4 bens, modalidade NE-Número de tombamentos", "status": "Homologado", "grupo": "Resolvida", "reporter": "jose carlos de vasconcelos", "criado": "2026-09-02 14:52", "resolvido": "2026-09-25 12:17", "corridos": "23", "uteis": "16", "horas": "549.4", "mes": "2026-09"}, {"chave": "ALSD-1038", "resumo": "DOCUMENTOS COM CONTRATOS SÃO IMPEDIDOS - RC 179", "status": "Em andamento", "grupo": "Em aberto", "reporter": "Benildo Gomes de Farias", "criado": "2026-09-02 15:11", "resolvido": "", "corridos": "43", "uteis": "29", "horas": "1037.4", "mes": "2026-09"}, {"chave": "ALSD-1039", "resumo": "Erro no usuário utilizado para atualização dos dados do portal da transparência", "status": "Finalizada", "grupo": "Resolvida", "reporter": "Diego Rodrigues", "criado": "2026-09-14 12:50", "resolvido": "2026-09-17 09:44", "corridos": "3", "uteis": "3", "horas": "68.9", "mes": "2026-09"}, {"chave": "ALSD-1040", "resumo": "Gerador de relatório PLOA 2027", "status": "Disponível para homologação", "grupo": "Em homologação", "reporter": "Marcos Malta", "criado": "2026-09-14 17:40", "resolvido": "", "corridos": "31", "uteis": "22", "horas": "747.0", "mes": "2026-09"}, {"chave": "ALSD-1042", "resumo": "SIAFE FORA DO AR.", "status": "Identificada", "grupo": "Em aberto", "reporter": "Cássia Thissiane Gerbase Tenório Calheiros de Souza", "criado": "2026-09-29 09:58", "resolvido": "", "corridos": "16", "uteis": "11", "horas": "394.6", "mes": "2026-09"}, {"chave": "ALSD-1043", "resumo": "GERAÇÃO DE ARQUIVO DE REMESSA OB INEXISTENTES", "status": "Cancelada", "grupo": "Cancelada", "reporter": "Diego Rodrigues", "criado": "2026-10-01 13:31", "resolvido": "2026-10-13 10:06", "corridos": "12", "uteis": "7", "horas": "284.6", "mes": "2026-10"}, {"chave": "ALSD-1044", "resumo": "REATIVAR APLICAÇÃO DO SIAFE E SECURITY PRODUÇÃO", "status": "Em andamento", "grupo": "Em aberto", "reporter": "Silvio Dias", "criado": "2026-10-06 08:53", "resolvido": "", "corridos": "9", "uteis": "6", "horas": "227.7", "mes": "2026-10"}, {"chave": "ALSD-1045", "resumo": "Ações de melhorias de segurança no sistema", "status": "Identificada", "grupo": "Em aberto", "reporter": "Diego Rodrigues", "criado": "2026-10-13 10:20", "resolvido": "", "corridos": "2", "uteis": "2", "horas": "58.3", "mes": "2026-10"}];
+window.DASH_ROWS = [{"chave": "ALSD-999", "resumo": "REGRA DE DESTINAÇÃO 71 - CONFIGURAÇÃO", "status": "Cancelada", "grupo": "Cancelada", "reporter": "Maria Teresa Gomes S. Mendes", "criado": "2026-02-19 13:23", "atualizado": "2026-03-12 14:30", "mes": "2026-02"}, {"chave": "ALSD-1000", "resumo": "Solicitação de inclusão de campo ou área que informe a taxa geral de preenchimento do monitoramento no SIAFE", "status": "Identificada", "grupo": "Em aberto", "reporter": "Marina Beatriz de Lima Oliveira Silva", "criado": "2026-02-20 10:59", "atualizado": "2026-03-11 18:15", "mes": "2026-02"}, {"chave": "ALSD-1001", "resumo": "Lista com Centro de custos", "status": "Identificada", "grupo": "Em aberto", "reporter": "Eli Xavier de Brito Neto", "criado": "2026-02-25 09:54", "atualizado": "2026-03-11 18:15", "mes": "2026-02"}, {"chave": "ALSD-1002", "resumo": "Possibilidade de dedução automática de valor negativo em outro subitem", "status": "Identificada", "grupo": "Em aberto", "reporter": "Eli Xavier de Brito Neto", "criado": "2026-02-25 14:07", "atualizado": "2026-03-11 18:15", "mes": "2026-02"}, {"chave": "ALSD-1003", "resumo": "Erro no Marcador de FOnte no Cubo \"Saldos Contábeis (Histórico)\"", "status": "Com restrições", "grupo": "Com restrições", "reporter": "Marcos Malta", "criado": "2026-03-02 11:36", "atualizado": "2026-10-16 18:10", "mes": "2026-03"}, {"chave": "ALSD-1005", "resumo": "Inclusão de Tipo Patrimonial no registro de Transferência", "status": "Identificada", "grupo": "Em aberto", "reporter": "Carlos Venâncio Barreto Ferreira", "criado": "2026-03-04 12:25", "atualizado": "2026-10-16 18:11", "mes": "2026-03"}, {"chave": "ALSD-1007", "resumo": "SIAFE NÃO ESTÁ CLASSIFICANDO AS RECEITAS", "status": "Finalizada", "grupo": "Atendida", "reporter": "Epson Acioli Silveira", "criado": "2026-03-05 11:34", "atualizado": "2026-03-10 15:37", "mes": "2026-03"}, {"chave": "ALSD-1008", "resumo": "Acrescentar Tipo de Documento na Importação da Receita", "status": "Identificada", "grupo": "Em aberto", "reporter": "Brenda Rocha Nunes Soares", "criado": "2026-03-09 09:38", "atualizado": "2026-03-11 18:13", "mes": "2026-03"}, {"chave": "ALSD-1009", "resumo": "ANULAÇÃO DE RECONHECIMENTO DE DEA - VALOR EQUIVOCADO", "status": "Identificada", "grupo": "Em aberto", "reporter": "Benildo Gomes de Farias", "criado": "2026-03-09 16:24", "atualizado": "2026-06-01 13:32", "mes": "2026-03"}, {"chave": "ALSD-1010", "resumo": "Automatização do décimo terceiro", "status": "Identificada", "grupo": "Em aberto", "reporter": "Eli Xavier de Brito Neto", "criado": "2026-03-11 12:46", "atualizado": "2026-03-11 18:14", "mes": "2026-03"}, {"chave": "ALSD-1011", "resumo": "Erro Assinador Digital", "status": "Finalizada", "grupo": "Atendida", "reporter": "João Pedro Meira Reis", "criado": "2026-03-27 11:22", "atualizado": "2026-04-23 09:40", "mes": "2026-03"}, {"chave": "ALSD-1012", "resumo": "MÓDULO ALPA-BENS MÓVEIS-GERAÇÃO DE RELATÓRIO DE MOVIMENTAÇÃO MENSAL DE BENS MÓVEIS-RMB", "status": "Em andamento", "grupo": "Em aberto", "reporter": "jose carlos de vasconcelos", "criado": "2026-03-27 12:21", "atualizado": "2026-10-16 18:16", "mes": "2026-03"}, {"chave": "ALSD-1013", "resumo": "Solicitação de Demonstração Funcional – Integração de Custos de Aquisição de Bens Móveis ao Módulo ALPA-SIAFE.", "status": "Identificada", "grupo": "Em aberto", "reporter": "jose carlos de vasconcelos", "criado": "2026-04-06 13:22", "atualizado": "2026-04-06 13:22", "mes": "2026-04"}, {"chave": "ALSD-1014", "resumo": "ERRO AO ACESSAR O SIAFE", "status": "Homologado", "grupo": "Atendida", "reporter": "Cássia Thissiane Gerbase Tenório Calheiros de Souza", "criado": "2026-04-15 07:50", "atualizado": "2026-04-15 09:54", "mes": "2026-04"}, {"chave": "ALSD-1015", "resumo": "IMPORTAÇÃO DE BENS MÓVEIS-MÓDULO ALPA", "status": "Homologado", "grupo": "Atendida", "reporter": "jose carlos de vasconcelos", "criado": "2026-04-17 13:30", "atualizado": "2026-08-07 11:06", "mes": "2026-04"}, {"chave": "ALSD-1016", "resumo": "ERRO ASSINADOR", "status": "Finalizada", "grupo": "Atendida", "reporter": "Cássia Thissiane Gerbase Tenório Calheiros de Souza", "criado": "2026-04-23 09:00", "atualizado": "2026-04-29 15:41", "mes": "2026-04"}, {"chave": "ALSD-1017", "resumo": "ERRO ASSINADOR", "status": "Finalizada", "grupo": "Atendida", "reporter": "Cássia Thissiane Gerbase Tenório Calheiros de Souza", "criado": "2026-05-05 11:04", "atualizado": "2026-05-06 17:03", "mes": "2026-05"}, {"chave": "ALSD-1018", "resumo": "Atualização de dados da DGN", "status": "Identificada", "grupo": "Em aberto", "reporter": "Brenda Rocha Nunes Soares", "criado": "2026-05-06 15:43", "atualizado": "2026-10-16 18:04", "mes": "2026-05"}, {"chave": "ALSD-1019", "resumo": "SIAFE NÃO ESTÁ FUNCIONANDO.", "status": "Homologado", "grupo": "Atendida", "reporter": "Epson Acioli Silveira", "criado": "2026-05-08 08:04", "atualizado": "2026-10-16 18:02", "mes": "2026-05"}, {"chave": "ALSD-1020", "resumo": "Função do Atributo \"Controla convênios\" no perfil das UGs", "status": "Homologado", "grupo": "Atendida", "reporter": "Rafael Marques da Silva", "criado": "2026-05-19 14:58", "atualizado": "2026-10-16 18:05", "mes": "2026-05"}, {"chave": "ALSD-1021", "resumo": "ATUALIZAÇÃO DE DADOS DGN", "status": "Homologado", "grupo": "Atendida", "reporter": "Cássia Thissiane Gerbase Tenório Calheiros de Souza", "criado": "2026-05-20 13:19", "atualizado": "2026-10-16 18:05", "mes": "2026-05"}, {"chave": "ALSD-1022", "resumo": "Atualização para marcadores orçamentários nas ações.", "status": "Com restrições", "grupo": "Com restrições", "reporter": "Marcos Malta", "criado": "2026-05-20 17:22", "atualizado": "2026-10-16 18:08", "mes": "2026-05"}, {"chave": "ALSD-1023", "resumo": "Relatorios de Monitoramento Não Abre", "status": "Em andamento", "grupo": "Em aberto", "reporter": "Marina Beatriz de Lima Oliveira Silva", "criado": "2026-05-21 09:54", "atualizado": "2026-05-21 13:36", "mes": "2026-05"}, {"chave": "ALSD-1024", "resumo": "ERRO ASSINADOR", "status": "Finalizada", "grupo": "Atendida", "reporter": "Cássia Thissiane Gerbase Tenório Calheiros de Souza", "criado": "2026-05-22 10:41", "atualizado": "2026-08-24 09:02", "mes": "2026-05"}, {"chave": "ALSD-1025", "resumo": "Relatorio 10916 - Relatório 04 - Estrutura Programática - Temático Não Abre", "status": "Em andamento", "grupo": "Em aberto", "reporter": "Marina Beatriz de Lima Oliveira Silva", "criado": "2026-06-03 16:05", "atualizado": "2026-06-03 17:56", "mes": "2026-06"}, {"chave": "ALSD-1026", "resumo": "Abertura do SIAFE 2027", "status": "Homologado", "grupo": "Atendida", "reporter": "Marcos Malta", "criado": "2026-06-15 15:27", "atualizado": "2026-07-29 15:15", "mes": "2026-06"}, {"chave": "ALSD-1027", "resumo": "Agendamentos genéricos não estão sendo executados", "status": "Homologado", "grupo": "Atendida", "reporter": "Diego Rodrigues", "criado": "2026-06-25 10:09", "atualizado": "2026-07-02 11:44", "mes": "2026-06"}, {"chave": "ALSD-1028", "resumo": "Erro conexão banco oracle siafe", "status": "Homologado", "grupo": "Atendida", "reporter": "Diego Rodrigues", "criado": "2026-07-10 10:16", "atualizado": "2026-10-16 18:01", "mes": "2026-07"}, {"chave": "ALSD-1029", "resumo": "ALPA-Denominação e funcionalidade de ícone", "status": "Homologado", "grupo": "Atendida", "reporter": "jose carlos de vasconcelos", "criado": "2026-08-06 10:54", "atualizado": "2026-08-17 16:19", "mes": "2026-08"}, {"chave": "ALSD-1036", "resumo": "Manual atualizado-Módulo ALPA-Bens Móveis", "status": "Identificada", "grupo": "Em aberto", "reporter": "jose carlos de vasconcelos", "criado": "2026-09-01 10:23", "atualizado": "2026-09-01 10:23", "mes": "2026-09"}, {"chave": "ALSD-1037", "resumo": "Registro de 4 bens, modalidade NE-Número de tombamentos", "status": "Homologado", "grupo": "Atendida", "reporter": "jose carlos de vasconcelos", "criado": "2026-09-02 14:52", "atualizado": "2026-09-25 12:17", "mes": "2026-09"}, {"chave": "ALSD-1038", "resumo": "DOCUMENTOS COM CONTRATOS SÃO IMPEDIDOS - RC 179", "status": "Em andamento", "grupo": "Em aberto", "reporter": "Benildo Gomes de Farias", "criado": "2026-09-02 15:11", "atualizado": "2026-10-16 18:22", "mes": "2026-09"}, {"chave": "ALSD-1039", "resumo": "Erro no usuário utilizado para atualização dos dados do portal da transparência", "status": "Finalizada", "grupo": "Atendida", "reporter": "Diego Rodrigues", "criado": "2026-09-14 12:50", "atualizado": "2026-09-17 10:43", "mes": "2026-09"}, {"chave": "ALSD-1040", "resumo": "Gerador de relatório PLOA 2027", "status": "Homologado", "grupo": "Atendida", "reporter": "Marcos Malta", "criado": "2026-09-14 17:40", "atualizado": "2026-10-16 18:03", "mes": "2026-09"}, {"chave": "ALSD-1042", "resumo": "SIAFE FORA DO AR.", "status": "Homologado", "grupo": "Atendida", "reporter": "Cássia Thissiane Gerbase Tenório Calheiros de Souza", "criado": "2026-09-29 09:58", "atualizado": "2026-10-16 18:03", "mes": "2026-09"}, {"chave": "ALSD-1043", "resumo": "GERAÇÃO DE ARQUIVO DE REMESSA OB INEXISTENTES", "status": "Cancelada", "grupo": "Cancelada", "reporter": "Diego Rodrigues", "criado": "2026-10-01 13:31", "atualizado": "2026-10-13 10:07", "mes": "2026-10"}, {"chave": "ALSD-1044", "resumo": "REATIVAR APLICAÇÃO DO SIAFE E SECURITY PRODUÇÃO", "status": "Em andamento", "grupo": "Em aberto", "reporter": "Silvio Dias", "criado": "2026-10-06 08:53", "atualizado": "2026-10-16 17:58", "mes": "2026-10"}, {"chave": "ALSD-1045", "resumo": "Ações de melhorias de segurança no sistema", "status": "Em andamento", "grupo": "Em aberto", "reporter": "Diego Rodrigues", "criado": "2026-10-13 10:20", "atualizado": "2026-10-16 17:07", "mes": "2026-10"}];
 window.dash = (() => {
   const calcs = {}, store = { chamados: window.DASH_ROWS }, subs = [];
   const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
@@ -30,7 +30,7 @@ window.dash = (() => {
     },
     onData(fn) { subs.push(fn); const run = () => fn(); document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', run) : run(); },
     _redraw() { subs.forEach(f => f()); },
-    get colors() { return [css('--c0'), css('--c1')]; }
+    get colors() { return [css('--c0'), css('--c1'), css('--c2')]; }
   };
 })();
 let _rt; window.addEventListener('resize', () => { clearTimeout(_rt); _rt = setTimeout(() => dash._redraw(), 150); });
@@ -55,301 +55,84 @@ let _rt; window.addEventListener('resize', () => { clearTimeout(_rt); _rt = setT
 .jr th, .jr td { text-align: left; padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
 .jr th { color: var(--color-fg-muted); font-weight: var(--cds-font-weight-medium); white-space: nowrap; }
 .jr td.n, .jr th.n { text-align: right; white-space: nowrap; }
+.jr td.nw { white-space: nowrap; }
 .jr td.res { min-width: 14rem; }
-.jr a.key { color: var(--c0, inherit); color: inherit; text-decoration: underline; text-underline-offset: 2px; font-weight: var(--cds-font-weight-medium); }
+.jr a.key { color: inherit; text-decoration: underline; text-underline-offset: 2px; font-weight: var(--cds-font-weight-medium); }
 .jr a.key:hover { opacity: .75; }
-.jr tr.open td { color: var(--color-fg-muted); }
 .jr tr.cancel td { color: var(--color-fg-muted); text-decoration: line-through; text-decoration-color: var(--color-border-line); }
-.jr .pill { display: inline-block; padding: 0 var(--cds-pad-xs); border-radius: var(--cds-radius); border: 1px solid var(--color-border-line); white-space: nowrap; text-decoration: none; }
+.jr .pill { display: inline-block; padding: 0 var(--cds-pad-xs); border-radius: var(--cds-radius); border: 1px solid var(--color-border-line); white-space: nowrap; }
 .jr .pill.ok { color: var(--color-ok); }
 .jr .pill.warn { color: var(--color-warn); }
+.jr .pill.bad { color: var(--color-bad); }
 .jr .months { display: flex; flex-direction: column; gap: var(--cds-gap-md); }
 .jr .mhead { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--cds-gap-sm); align-items: baseline; }
 .jr .mstats { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
 .jr .chart { position: relative; min-height: 240px; }
 .jr .tip { position: absolute; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); pointer-events: none; display: none; white-space: nowrap; }
 .jr .tip .d { color: var(--cds-text-secondary); }
-.jr .legend { display: flex; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin-bottom: var(--cds-gap-sm); }
+.jr .legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin-bottom: var(--cds-gap-sm); }
 .jr .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: middle; }
+.jr .bar { height: 8px; border-radius: 4px; background: var(--color-border-line); overflow: hidden; min-width: 4rem; }
+.jr .bar > span { display: block; height: 100%; border-radius: 4px; }
 .jr .fail { display: flex; align-items: center; justify-content: center; gap: 6px; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); min-height: 120px; }
 .jr .fail::before { content: ""; width: .375rem; height: .375rem; border-radius: 50%; background: var(--color-bad); }
 .jr [data-dash-source-state=empty] { color: transparent; }
 .jr [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
-.jr .res-time { color: var(--color-fg-muted); }
+.jr #meses h1 { margin-bottom: var(--cds-gap-xs); }
 </style>
 
 <div class="jr">
-  <header>
-    <h1>Tempo de resolução dos chamados ALSD</h1>
-    <p class="lead" id="takeaway" data-source="kpis">—</p>
-  </header>
-
-  <section class="tiles" id="kpis">
-    <div class="card tile"><div class="lbl">Chamados abertos no período</div><div class="val dash-skeleton" data-source="kpis" data-field="total" data-row="0">—</div><div class="sub">fev–out 2026</div></div>
-    <div class="card tile"><div class="lbl">Issues resolvidas</div><div class="val dash-skeleton" data-source="kpis" data-field="resolvidas" data-row="0">—</div><div class="sub">com data de resolução (exceto canceladas)</div></div>
-    <div class="card tile"><div class="lbl">Tempo médio · dias úteis</div><div class="val dash-skeleton" data-source="kpis" data-field="media_uteis" data-row="0">—</div><div class="sub">da criação à resolução</div></div>
-    <div class="card tile"><div class="lbl">Tempo médio · dias corridos</div><div class="val dash-skeleton" data-source="kpis" data-field="media_corridos" data-row="0">—</div><div class="sub">da criação à resolução</div></div>
-    <div class="card tile"><div class="lbl">Mediana · dias úteis</div><div class="val dash-skeleton" data-source="kpis" data-field="mediana_uteis" data-row="0">—</div><div class="sub">metade resolvida até aqui</div></div>
-    <div class="card tile"><div class="lbl">Aguardando homologação</div><div class="val dash-skeleton" data-source="kpis" data-field="em_homologacao" data-row="0">—</div><div class="sub">entregues, sem data de resolução</div></div>
-    <div class="card tile"><div class="lbl">Em aberto hoje</div><div class="val dash-skeleton" data-source="kpis" data-field="em_aberto" data-row="0">—</div><div class="sub">identificadas ou em andamento</div></div>
-  </section>
-
-  <section class="card" id="quadro">
-    <h2>Quadro estatístico por mês de abertura</h2>
-    <p class="note">Tempos calculados sobre as issues resolvidas, da criação até o campo “Resolvido” do Jira. Dias úteis excluem fins de semana e feriados nacionais (inclui Carnaval e Corpus Christi).</p>
-    <div class="tw">
-      <table data-source="por_mes" data-row-key="mes">
-        <thead><tr>
-          <th data-field="mes">Mês</th>
-          <th class="n" data-field="abertos">Abertos</th>
-          <th class="n" data-field="resolvidas">Resolvidas</th>
-          <th class="n" data-field="em_homologacao">Em homologação</th>
-          <th class="n" data-field="em_aberto">Em aberto</th>
-          <th class="n" data-field="canceladas">Canceladas</th>
-          <th class="n" data-field="media_uteis">Média úteis</th>
-          <th class="n" data-field="media_corridos">Média corridos</th>
-          <th class="n" data-field="mediana_uteis">Mediana úteis</th>
-          <th class="n" data-field="min_uteis">Mín. úteis</th>
-          <th class="n" data-field="max_uteis">Máx. úteis</th>
-        </tr></thead>
-        <tbody id="quadro-body"></tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="grid2">
-    <div class="card" id="grafico">
-      <h2>Tempo médio de resolução por mês</h2>
-      <p class="note">Média das issues resolvidas, pelo mês em que foram abertas.</p>
-      <div class="legend"><span><i id="lg0"></i>Dias úteis</span><span><i id="lg1"></i>Dias corridos</span></div>
-      <div class="chart dash-skeleton" id="chart" data-source="por_mes"></div>
-    </div>
-    <div class="card" id="reporters">
-      <h2>Por reporter</h2>
-      <p class="note">Quem abriu os chamados, quantos foram resolvidos e em quanto tempo.</p>
-      <div class="tw">
-        <table data-source="por_reporter" data-row-key="reporter">
-          <thead><tr>
-            <th data-field="reporter">Reporter</th>
-            <th class="n" data-field="abertos">Abertos</th>
-            <th class="n" data-field="resolvidas">Resolvidas</th>
-            <th class="n" data-field="media_uteis">Média úteis</th>
-            <th class="n" data-field="media_corridos">Média corridos</th>
-            <th class="n" data-field="pendentes">Pendentes</th>
-          </tr></thead>
-          <tbody id="rep-body"></tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
   <section id="meses">
-    <h2>Chamados por mês</h2>
-    <p class="note">Para as resolvidas e canceladas, o tempo vai da criação à data de resolução. Para as pendentes (em cinza: em aberto ou aguardando homologação), mostra há quanto tempo estão abertas até 15/10/2026. Clique na chave para abrir no Jira.</p>
+    <h1>Chamados por mês</h1>
+    <p class="note">Clique na chave para abrir o chamado no Jira.</p>
     <div class="months" id="months"></div>
   </section>
 </div>
 
 <script>
 (() => {
-  const RES = 'Resolvida';
   const JIRA = 'https://logusinfo.atlassian.net/browse/';
-  const num = r => ({ ...r, corridos: Number(r.corridos), uteis: Number(r.uteis) });
-  const mean = a => a.length ? a.reduce((s, x) => s + x, 0) / a.length : null;
-  const r1 = v => v == null ? null : Math.round(v * 10) / 10;
-
-  dash.calc('kpis', {
-    inputs: ['chamados'],
-    title: 'Indicadores gerais',
-    description: 'Contagens por situação e média/mediana do tempo de resolução das issues resolvidas.',
-    fn: (chamados) => {
-      const rs = chamados.filter(r => r.grupo === 'Resolvida');
-      const u = rs.map(r => Number(r.uteis)), c = rs.map(r => Number(r.corridos));
-      const avg = a => a.length ? Math.round(a.reduce((s, x) => s + x, 0) / a.length * 10) / 10 : null;
-      const s = [...u].sort((x, y) => x - y), m = Math.floor(s.length / 2);
-      return [{
-        total: chamados.length,
-        resolvidas: rs.length,
-        em_homologacao: chamados.filter(r => r.grupo === 'Em homologação').length,
-        em_aberto: chamados.filter(r => r.grupo === 'Em aberto').length,
-        canceladas: chamados.filter(r => r.grupo === 'Cancelada').length,
-        media_uteis: avg(u), media_corridos: avg(c),
-        mediana_uteis: s.length ? (s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2) : null
-      }];
-    }
-  });
-
-  dash.calc('por_mes', {
-    inputs: ['chamados'],
-    title: 'Estatística por mês',
-    description: 'Por mês de abertura: contagens por situação e tempo médio, mediano, mínimo e máximo das resolvidas.',
-    fn: (chamados) => {
-      const meses = [...new Set(chamados.map(r => r.mes))].sort();
-      const avg = a => a.length ? Math.round(a.reduce((s, x) => s + x, 0) / a.length * 10) / 10 : null;
-      return meses.map(mes => {
-        const rs = chamados.filter(r => r.mes === mes);
-        const ok = rs.filter(r => r.grupo === 'Resolvida');
-        const u = ok.map(r => Number(r.uteis)), c = ok.map(r => Number(r.corridos));
-        const s = [...u].sort((x, y) => x - y), m = Math.floor(s.length / 2);
-        return {
-          mes, abertos: rs.length, resolvidas: ok.length,
-          em_homologacao: rs.filter(r => r.grupo === 'Em homologação').length,
-          em_aberto: rs.filter(r => r.grupo === 'Em aberto').length,
-          canceladas: rs.filter(r => r.grupo === 'Cancelada').length,
-          media_uteis: avg(u), media_corridos: avg(c),
-          mediana_uteis: s.length ? (s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2) : null,
-          min_uteis: s.length ? s[0] : null, max_uteis: s.length ? s[s.length - 1] : null
-        };
-      });
-    }
-  });
-
-  dash.calc('por_reporter', {
-    inputs: ['chamados'],
-    title: 'Estatística por reporter',
-    description: 'Por reporter: chamados abertos, resolvidos, tempo médio de resolução e pendentes (em aberto ou em homologação).',
-    fn: (chamados) => {
-      const avg = a => a.length ? Math.round(a.reduce((s, x) => s + x, 0) / a.length * 10) / 10 : null;
-      return [...new Set(chamados.map(r => r.reporter))].map(reporter => {
-        const rs = chamados.filter(r => r.reporter === reporter);
-        const ok = rs.filter(r => r.grupo === 'Resolvida');
-        return { reporter, abertos: rs.length, resolvidas: ok.length,
-          media_uteis: avg(ok.map(r => Number(r.uteis))),
-          media_corridos: avg(ok.map(r => Number(r.corridos))),
-          pendentes: rs.filter(r => r.grupo === 'Em aberto' || r.grupo === 'Em homologação').length };
-      }).sort((a, b) => b.abertos - a.abertos || a.reporter.localeCompare(b.reporter));
-    }
-  });
 
   const MESES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
   const mesNome = m => MESES[+m.slice(5, 7) - 1] + ' ' + m.slice(0, 4);
-  const mesCurto = m => MESES[+m.slice(5, 7) - 1].slice(0, 3) + '/' + m.slice(2, 4);
   const dt = d => d ? d.slice(8, 10) + '/' + d.slice(5, 7) + '/' + d.slice(0, 4) + ' ' + d.slice(11, 16) : '';
-  const f1 = v => v == null ? '–' : v.toLocaleString('pt-BR', { maximumFractionDigits: 1 });
-  const dias = v => v == null ? '–' : f1(v) + (v === 1 ? ' dia' : ' dias');
+  const pillCls = g => g === 'Atendida' ? ' ok' : g === 'Em aberto' ? ' warn' : g === 'Com restrições' ? ' bad' : '';
   const failLine = el => { el.innerHTML = ''; const d = document.createElement('div'); d.className = 'fail'; d.textContent = 'Failed to load'; el.appendChild(d); };
   function cell(tr, text, cls) { const td = tr.insertCell(); td.textContent = text; if (cls) td.className = cls; return td; }
 
-  function drawChart(rows) {
-    const box = document.getElementById('chart');
-    box.innerHTML = '';
-    box.classList.remove('dash-skeleton');
-    const data = rows.filter(r => r.media_uteis != null);
-    const W = Math.max(280, box.clientWidth), H = 240;
-    const svg = d3.select(box).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
-    const yMax = d3.max(data, d => d.media_corridos) || 1;
-    const y = d3.scaleLinear([0, yMax], [H - 24, 10]).nice();
-    const probe = svg.append('text').attr('font-size', 11).text(d3.max(y.ticks(4)));
-    const ml = probe.node().getComputedTextLength() + 10; probe.remove();
-    const x0 = d3.scaleBand(data.map(d => d.mes), [ml, W - 4]).padding(0.25);
-    const x1 = d3.scaleBand(['media_uteis', 'media_corridos'], [0, x0.bandwidth()]).padding(0.1);
-    const cols = [dash.colors[0], dash.colors[1]];
-    document.getElementById('lg0').style.background = cols[0];
-    document.getElementById('lg1').style.background = cols[1];
-    svg.append('g').selectAll('line').data(y.ticks(4)).join('line')
-      .attr('x1', ml).attr('x2', W - 4).attr('y1', d => y(d)).attr('y2', d => y(d))
-      .attr('stroke', 'var(--cds-chart-grid)');
-    svg.append('g').selectAll('text').data(y.ticks(4)).join('text')
-      .attr('x', ml - 6).attr('y', d => y(d)).attr('dy', '0.32em').attr('text-anchor', 'end')
-      .attr('font-size', 11).attr('fill', 'var(--color-fg-muted)').text(d => d);
-    svg.append('g').selectAll('text').data(data).join('text')
-      .attr('x', d => x0(d.mes) + x0.bandwidth() / 2).attr('y', H - 6).attr('text-anchor', 'middle')
-      .attr('font-size', 11).attr('fill', 'var(--color-fg-muted)').text(d => mesCurto(d.mes));
-    const tip = d3.select(box).append('div').attr('class', 'tip');
-    const g = svg.append('g').selectAll('g').data(data).join('g').attr('transform', d => `translate(${x0(d.mes)},0)`);
-    g.selectAll('rect').data(d => ['media_uteis', 'media_corridos'].map((k, i) => ({ d, k, i, v: d[k] }))).join('rect')
-      .attr('x', o => x1(o.k)).attr('width', Math.min(32, x1.bandwidth()))
-      .attr('y', o => y(o.v)).attr('height', o => Math.max(0, y(0) - y(o.v)))
-      .attr('rx', 4).attr('fill', o => cols[o.i]);
-    g.append('rect').attr('x', 0).attr('width', x0.bandwidth()).attr('y', 0).attr('height', H - 20).attr('fill', 'transparent')
-      .on('mousemove', (ev, d) => {
-        tip.style('display', 'block').html('');
-        tip.append('div').attr('class', 'd').text(mesNome(d.mes) + ' · ' + d.resolvidas + ' resolvida(s)');
-        tip.append('div').text('Dias úteis: ' + f1(d.media_uteis));
-        tip.append('div').text('Dias corridos: ' + f1(d.media_corridos));
-        const [px, py] = d3.pointer(ev, box);
-        const tw = tip.node().offsetWidth;
-        tip.style('left', Math.max(0, Math.min(box.clientWidth - tw, px + 12)) + 'px').style('top', Math.max(0, py - 40) + 'px');
-      })
-      .on('mouseleave', () => tip.style('display', 'none'));
-  }
-
   dash.onData(() => {
-    const K = dash.data('kpis'), M = dash.data('por_mes'), R = dash.data('por_reporter'), C = dash.data('chamados');
-
-    document.querySelectorAll('#kpis [data-field]').forEach(el => {
-      if (K.status === 'ok' && K.data.length) {
-        el.classList.remove('dash-skeleton');
-        const v = K.data[0][el.dataset.field];
-        el.textContent = /media|mediana/.test(el.dataset.field) ? f1(v) : String(v);
-      } else if (K.status === 'error') { el.classList.remove('dash-skeleton'); el.textContent = '—'; }
-      else el.textContent = '—';
-    });
-    const tk = document.getElementById('takeaway');
-    if (K.status === 'ok' && K.data.length) {
-      const k = K.data[0];
-      tk.textContent = `${k.resolvidas} de ${k.total} chamados foram resolvidos, em média em ${f1(k.media_uteis)} dias úteis (${f1(k.media_corridos)} corridos). A mediana de ${f1(k.mediana_uteis)} dias úteis mostra que a maioria é resolvida rápido e poucos casos longos puxam a média. ${k.em_aberto} seguem em aberto e ${k.em_homologacao} aguardam homologação.`;
-    } else tk.textContent = '—';
-
-    const qb = document.getElementById('quadro-body'); qb.innerHTML = '';
-    if (M.status === 'ok') {
-      M.data.forEach(r => {
-        const tr = qb.insertRow(); tr.dataset.key = r.mes;
-        cell(tr, mesNome(r.mes));
-        [r.abertos, r.resolvidas, r.em_homologacao, r.em_aberto, r.canceladas].forEach(v => cell(tr, String(v), 'n'));
-        [r.media_uteis, r.media_corridos, r.mediana_uteis, r.min_uteis, r.max_uteis].forEach(v => cell(tr, f1(v), 'n'));
-      });
-    } else if (M.status === 'error') { const td = qb.insertRow().insertCell(); td.colSpan = 11; failLine(td); }
-
-    if (M.status === 'ok') drawChart(M.data);
-    else if (M.status === 'error') { const c = document.getElementById('chart'); c.classList.remove('dash-skeleton'); failLine(c); }
-
-    const rb = document.getElementById('rep-body'); rb.innerHTML = '';
-    if (R.status === 'ok') {
-      R.data.forEach(r => {
-        const tr = rb.insertRow(); tr.dataset.key = r.reporter;
-        cell(tr, r.reporter); cell(tr, String(r.abertos), 'n'); cell(tr, String(r.resolvidas), 'n');
-        cell(tr, f1(r.media_uteis), 'n'); cell(tr, f1(r.media_corridos), 'n'); cell(tr, String(r.pendentes), 'n');
-      });
-    } else if (R.status === 'error') { const td = rb.insertRow().insertCell(); td.colSpan = 6; failLine(td); }
+    const C = dash.data('chamados');
 
     const host = document.getElementById('months'); host.innerHTML = '';
     if (C.status === 'ok') {
-      const rows = C.data.map(num);
+      const rows = C.data;
       [...new Set(rows.map(r => r.mes))].sort().reverse().forEach(mes => {
         const rs = rows.filter(r => r.mes === mes);
-        const ok = rs.filter(r => r.grupo === RES);
+        const at = rs.filter(r => r.grupo === 'Atendida').length;
         const card = document.createElement('div'); card.className = 'card'; card.id = 'mes-' + mes;
         const head = document.createElement('div'); head.className = 'mhead';
         const h = document.createElement('h2'); h.textContent = mesNome(mes);
         const st = document.createElement('div'); st.className = 'mstats';
-        st.textContent = `${rs.length} aberto(s) · ${ok.length} resolvido(s)` + (ok.length ? ` · média ${dias(r1(mean(ok.map(r => r.uteis))))} úteis / ${dias(r1(mean(ok.map(r => r.corridos))))} corridos` : '');
+        st.textContent = `${rs.length} aberto(s) · ${at} atendido(s) · ${rs.length - at} não atendido(s)`;
         head.append(h, st); card.appendChild(head);
         const wrap = document.createElement('div'); wrap.className = 'tw'; wrap.style.marginTop = 'var(--cds-gap-sm)';
         const t = document.createElement('table');
         t.dataset.source = 'chamados'; t.dataset.rowKey = 'chave';
         const hr = t.createTHead().insertRow();
-        [['chave','Chave'],['resumo','Resumo'],['status','Status'],['reporter','Reporter'],['criado','Criado'],['resolvido','Resolvido em'],['uteis','Dias úteis'],['corridos','Dias corridos']].forEach(([f, l]) => {
-          const th = document.createElement('th'); th.dataset.field = f; th.textContent = l;
-          if (f === 'uteis' || f === 'corridos') th.className = 'n';
-          hr.appendChild(th);
+        [['chave','Chave'],['resumo','Resumo'],['status','Status'],['reporter','Reporter'],['criado','Criado'],['atualizado','Atualizado']].forEach(([f, l]) => {
+          const th = document.createElement('th'); th.dataset.field = f; th.textContent = l; hr.appendChild(th);
         });
         const tb = t.createTBody();
         rs.forEach(r => {
           const tr = tb.insertRow(); tr.dataset.key = r.chave;
-          if (r.grupo === 'Em aberto' || r.grupo === 'Em homologação') tr.className = 'open';
           if (r.grupo === 'Cancelada') tr.className = 'cancel';
-          const kc = tr.insertCell(); kc.style.whiteSpace = 'nowrap';
+          const kc = tr.insertCell(); kc.className = 'nw';
           const a = document.createElement('a'); a.href = JIRA + encodeURIComponent(r.chave); a.target = '_blank'; a.rel = 'noopener';
           a.className = 'key'; a.textContent = r.chave; kc.appendChild(a);
           cell(tr, r.resumo, 'res');
-          const sc = tr.insertCell(); const p = document.createElement('span');
-          p.className = 'pill' + (r.grupo === RES ? ' ok' : (r.grupo === 'Em aberto' || r.grupo === 'Em homologação') ? ' warn' : '');
-          p.textContent = r.status; sc.appendChild(p);
+          const sc = tr.insertCell(); const p = document.createElement('span'); p.className = 'pill' + pillCls(r.grupo); p.textContent = r.status; sc.appendChild(p);
           cell(tr, r.reporter);
-          const cc = cell(tr, dt(r.criado)); cc.style.whiteSpace = 'nowrap';
-          const rc = cell(tr, dt(r.resolvido)); rc.style.whiteSpace = 'nowrap';
-          cell(tr, String(r.uteis), 'n'); cell(tr, String(r.corridos), 'n');
+          cell(tr, dt(r.criado), 'nw'); cell(tr, dt(r.atualizado), 'nw');
         });
         wrap.appendChild(t); card.appendChild(wrap); host.appendChild(card);
       });
